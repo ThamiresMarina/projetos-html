@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Author" content="Thamires Santos">
+    <meta name="keywords" content="formulário, inscrição, curso, hackathon, 2026, tecnologia, desenvolvimento, programação">
+    <link rel="icon" type="image/GIF" href="./assets/icon/site.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Hackathon 2026 - Inscrição</title>
+</head>
+
+<body>
+
+    <section class="parallax">
+        <div class="container">
+
+            <div class="titulo">
+                <h1>Hackathon 2026</h1>
+                <p>Preenche o formulário abaixo e garante o teu lugar</p>
+            </div>
+
+            <form id="meuForm" action="mailto:formando.formando@gmail.com" method="post" enctype="text/plain" novalidate>
+
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" placeholder="O teu nome completo" required minlength="3">
+                <span class="erro" id="erroNome">O nome deve ter pelo menos 3 caracteres.</span>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                <span class="erro" id="erroEmail">Introduz um email válido.</span>
+
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone"
+                    pattern="[0-9]{9}"
+                    placeholder="Ex: 912345678"
+                    required>
+                <span class="erro" id="erroTelefone">O telefone deve ter 9 dígitos.</span>
+
+                <label for="assunto">Área de Participação</label>
+                <select id="assunto" name="assunto" required>
+                    <option value="">-- Seleciona uma opção --</option>
+                    <option value="dev">Desenvolvimento de Software</option>
+                    <option value="design">UI/UX Design</option>
+                    <option value="ia">Inteligência Artificial</option>
+                    <option value="cybersec">Cibersegurança</option>
+                    <option value="outro">Outro</option>
+                </select>
+                <span class="erro" id="erroAssunto">Seleciona uma área de participação.</span>
+
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Descreve a tua ideia ou motivação..." required minlength="10"></textarea>
+                <span class="erro" id="erroMensagem">A mensagem deve ter pelo menos 10 caracteres.</span>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="rgpd" name="rgpd" required>
+                    <label for="rgpd">Aceito a política de privacidade (RGPD)</label>
+                </div>
+                <span class="erro" id="erroRgpd">Deves aceitar a política de privacidade.</span>
+
+                <button type="submit">Enviar Inscrição</button>
+
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // EFEITO PARALLAX
+        window.addEventListener('scroll', function () {
+            const parallax = document.querySelector('.parallax');
+            const offset = window.scrollY;
+            parallax.style.backgroundPositionY = offset * 0.5 + 'px';
+        });
+
+        // VALIDAÇÃO DOS CAMPOS
+        document.getElementById('meuForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let valido = true;
+
+            // Nome
+            const nome = document.getElementById('nome');
+            const erroNome = document.getElementById('erroNome');
+            if (nome.value.trim().length < 3) {
+                erroNome.style.display = 'block';
+                nome.classList.add('campo-erro');
+                valido = false;
+            } else {
+                erroNome.style.display = 'none';
+                nome.classList.remove('campo-erro');
+            }
+
+            // Email
+            const email = document.getElementById('email');
+            const erroEmail = document.getElementById('erroEmail');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                erroEmail.style.display = 'block';
+                email.classList.add('campo-erro');
+                valido = false;
+            } else {
+                erroEmail.style.display = 'none';
+                email.classList.remove('campo-erro');
+            }
+
+            // Telefone
+            const telefone = document.getElementById('telefone');
+            const erroTelefone = document.getElementById('erroTelefone');
+            const telRegex = /^[0-9]{9}$/;
+            if (!telRegex.test(telefone.value)) {
+                erroTelefone.style.display = 'block';
+                telefone.classList.add('campo-erro');
+                valido = false;
+            } else {
+                erroTelefone.style.display = 'none';
+                telefone.classList.remove('campo-erro');
+            }
+
+            // Assunto
+            const assunto = document.getElementById('assunto');
+            const erroAssunto = document.getElementById('erroAssunto');
+            if (assunto.value === '') {
+                erroAssunto.style.display = 'block';
+                assunto.classList.add('campo-erro');
+                valido = false;
+            } else {
+                erroAssunto.style.display = 'none';
+                assunto.classList.remove('campo-erro');
+            }
+
+            // Mensagem
+            const mensagem = document.getElementById('mensagem');
+            const erroMensagem = document.getElementById('erroMensagem');
+            if (mensagem.value.trim().length < 10) {
+                erroMensagem.style.display = 'block';
+                mensagem.classList.add('campo-erro');
+                valido = false;
+            } else {
+                erroMensagem.style.display = 'none';
+                mensagem.classList.remove('campo-erro');
+            }
+
+            // RGPD
+            const rgpd = document.getElementById('rgpd');
+            const erroRgpd = document.getElementById('erroRgpd');
+            if (!rgpd.checked) {
+                erroRgpd.style.display = 'block';
+                valido = false;
+            } else {
+                erroRgpd.style.display = 'none';
+            }
+
+            // 
+            if (valido) {
+                alert('Inscrição enviada com sucesso!');
+                this.submit();
+            }
+        });
+    </script>
+
+</body>
+</html>
