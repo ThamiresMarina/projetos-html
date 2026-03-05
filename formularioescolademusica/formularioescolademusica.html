@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="Author" content="Thamires santos">
+        <meta name="keywords" content="Música, guitarra, piano, bateria, violino, canto, aulas de música, instrumentos musicais, teoria musical, harmonia, ritmo, melodia">
+        <!--Inserção do icon de página-->
+        <link rel="icon" type="image/png" href="./assets/icon/music-note.png">
+        <link rel="stylesheet" href="./css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+        <title>Academia Harmonia</title>
+    </head>
+
+<body>
+	<section class="container">
+		<h1>Formulário de Inscrição - Academia Harmonia</h1>
+        <form name="formulario"></form>    
+            <legend>Dados do Aluno</legend>
+            <br>
+            <label> Nome <input type="text"></label><br>
+            <label> Morada <input type="text"></label><br>
+            <label> Cidade <input type="text"></label><br>
+            <label> Codigo Postal <input type="text"></label><br>
+            <label> Freguesia   				
+                <select name="freguesia">
+                    <option value="" disabled selected hidden>Selecione</option>                    
+                    <option value="Ajuda"> Ajuda </option>
+                    <option value="Alcântara"> Alcântara </option> 					
+                    <option value="Alvalade"> Alvalade </option>   			
+                    <option value="Areeiro"> Areeiro </option>
+                    <option value="Arroios"> Arroios </option>
+                    <option value="Belém"> Belém </option>
+                    <option value="Campo de Ourique"> Campo de Ourique </option>
+                    <option value="Estrela"> Estrela </option>
+                    <option value="Lumiar"> Lumiar </option>
+                    <option value="Misericórdia"> Misericórdia </option>
+                    <option value="Olivais"> Olivais </option>
+                </select>
+            <label>
+        <hr>
+        <br>		
+        <legend>Dados Musicais</legend><br>
+        <p><strong>Instrumento Principal:</strong></p>
+            <label>Guitarra <input type="radio" name="instrumento" value="guitarra"></label>
+            <label>Piano <input type="radio" name="instrumento" value="piano"></label>
+            <label>Canto <input type="radio" name="instrumento" value="canto"></label>
+            <label>Bateria <input type="radio" name="instrumento" value="bateria"></label>
+            <label>Violino <input type="radio" name="instrumento" value="violino"></label>
+            <label>Produção Musical <input type="radio" name="instrumento" value="producao"></label>
+        </legend>
+        <hr>
+        <br>			
+        <label>Nível Musical
+            <select name="nivel">
+            <option value="" disabled selected hidden>Selecione</option>
+            <option value="iniciante">Iniciante</option>
+            <option value="intermedio">Intermédio</option>
+            <option value="avancado">Avançado</option>
+            <option value="profissional">Profissional</option>
+            </select>
+        </label>
+        <hr>
+               
+        <br>
+        <legend>Estilos Musicais de Interesse:</legend>
+            <label>Rock <input type="checkbox" name="estilo1"></label>
+            <label>Jazz <input type="checkbox" name="estilo2"></label>
+            <label>Pop <input type="checkbox" name="estilo3"></label>
+            <label>Música Clássica <input type="checkbox" name="estilo4"></label>
+            <label>Blues <input type="checkbox" name="estilo5"></label>
+            <label>Música Eletrónica <input type="checkbox" name="estilo6"></label>
+            <label>Outro <input type="checkbox" name="estilo7"></label>
+        <hr>
+        <legend>Objetivos Musicais</legend>
+        <br>       
+
+            <label>Tocar por hobby <input type="checkbox" name="obj1"></label>
+            <label>Entrar numa banda <input type="checkbox" name="obj2"></label>
+            <label>Preparação para conservatório <input type="checkbox" name="obj3"></label>
+            <label>Produção Musical <input type="checkbox" name="obj4"></label>
+            <label>Carreira profissional <input type="checkbox" name="obj5"></label>    
+        <hr>
+        <br>
+       <label>Experiência Musical:</label>
+            <textarea style="resize: both;" name="texto">Descreve aqui a tua experiência musical...</textarea>
+        <br>
+     
+        <form action="mailto:..." method="post" enctype="text/plain">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            <input type="submit" value="Submeter">
+        </form>		
+	</section>
+</body>
+</html>

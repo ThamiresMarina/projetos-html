@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* FUNDO FIXO */
+
+body {
+    background-image: url('../assets/img/pexels.jpg');
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* OVERLAY ESCURO */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 13, 46, 0.90);
+    z-index: -1;
+}
+
+/* CONTAINER CENTRAL */
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+/* TÍTULO */
+
+.titulo {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.titulo h1 {
+    font-size: 36px;
+    color: #f5a623;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.titulo p {
+    margin-top: 8px;
+    color: #ccc;
+}
+
+/* FORMULÁRIO */
+
+form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* CAMPOS */
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0d1b4b;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #f5a623;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* CHECKBOX */
+
+.checkbox-group {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    accent-color: #f5a623;
+}
+
+/* BOTÃO */
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background-color: #f5a623;
+    color: #060d2e;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #d4891a;
+}
+
+/* PARALLAX */
+.parallax {
+    
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+/* ERROS DE VALIDAÇÃO */
+.erro {
+    display: none;
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.campo-erro {
+    border-color: #e74c3c !important;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+}
