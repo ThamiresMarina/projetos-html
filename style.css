@@ -1,0 +1,451 @@
+/* ============================================================
+   THE INNERSELF — style.css
+   Paleta Cosmic: #1f0d61 | #b2a1e7 | #f5b52e | #753454
+   Fontes: Cinzel Decorative (títulos) · Cormorant Garamond (corpo)
+   ============================================================ */
+
+/* ── 0. Variáveis ── */
+:root {
+    --azul-escuro:  #1f0d61;
+    --vinho:        #753454;
+    --dourado:      #f5b52e;
+    --lilas:        #b2a1e7;
+    --lilas-claro:  #d4caf5;
+    --fundo-card:   #140a3e;
+    --texto-claro:  #f0eaff;
+}
+
+/* ── 1. Reset & Base ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: linear-gradient(135deg, var(--azul-escuro) 0%, #2d1040 50%, var(--vinho) 100%);
+    min-height: 100vh;
+    color: var(--texto-claro);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ── 2. Estrelas decorativas ── */
+.stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars span {
+    position: absolute;
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--lilas-claro);
+    opacity: 0.4;
+    animation: twinkle 4s infinite alternate;
+}
+
+/* Posições das estrelas */
+.stars span:nth-child(1)  { top:  8%; left: 12%; animation-delay: 0s;    }
+.stars span:nth-child(2)  { top: 15%; left: 75%; animation-delay: 0.5s;  }
+.stars span:nth-child(3)  { top: 30%; left: 90%; animation-delay: 1s;    }
+.stars span:nth-child(4)  { top: 55%; left:  5%; animation-delay: 1.5s;  }
+.stars span:nth-child(5)  { top: 70%; left: 60%; animation-delay: 0.3s;  }
+.stars span:nth-child(6)  { top: 85%; left: 30%; animation-delay: 0.8s;  }
+.stars span:nth-child(7)  { top: 20%; left: 45%; animation-delay: 2s;    }
+.stars span:nth-child(8)  { top: 40%; left: 22%; animation-delay: 1.2s;  }
+.stars span:nth-child(9)  { top: 60%; left: 80%; animation-delay: 0.6s;  }
+.stars span:nth-child(10) { top: 90%; left: 88%; animation-delay: 1.8s;  }
+.stars span:nth-child(11) { top:  5%; left: 55%; animation-delay: 2.2s;  }
+.stars span:nth-child(12) { top: 45%; left: 68%; animation-delay: 0.9s;  }
+.stars span:nth-child(13) { top: 75%; left: 15%; animation-delay: 1.4s;  }
+.stars span:nth-child(14) { top: 95%; left: 50%; animation-delay: 0.2s;  }
+.stars span:nth-child(15) { top: 35%; left: 38%; animation-delay: 1.7s;  }
+
+@keyframes twinkle {
+    from { opacity: 0.15; transform: scale(1);   }
+    to   { opacity: 0.7;  transform: scale(1.6); }
+}
+
+/* ── 3. Navbar ── */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 50px;
+    background: rgba(10, 5, 30, 0.75);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(245, 181, 46, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-symbol {
+    font-size: 1.8rem;
+    color: var(--dourado);
+    line-height: 1;
+}
+
+.logo-text {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    color: var(--dourado);
+    letter-spacing: 0.05em;
+}
+
+/* Links do menu */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--lilas-claro);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Sublinhado animado nos links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--dourado);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--dourado);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger — escondido no desktop */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 6px auto;
+    background-color: var(--lilas-claro);
+    transition: 0.3s;
+}
+
+/* ── 4. Hero ── */
+.hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 70px 20px 40px;
+}
+
+.hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--lilas);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+    color: var(--dourado);
+    text-shadow: 0 0 30px rgba(245, 181, 46, 0.35);
+    margin-bottom: 20px;
+}
+
+.hero-divider {
+    color: var(--lilas);
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    opacity: 0.7;
+}
+
+/* ── 5. Cards ── */
+.card-area {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 50px 40px 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.card {
+    flex: 1;
+    min-width: 260px;
+    max-width: 320px;
+    background: var(--fundo-card);
+    border: 1px solid rgba(245, 181, 46, 0.35);
+    border-radius: 12px;
+    padding: 40px 28px 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    /* Brilho interior subtil */
+    box-shadow:
+        0 0 0 1px rgba(245, 181, 46, 0.1),
+        inset 0 0 40px rgba(31, 13, 97, 0.4);
+}
+
+/* Card central em destaque */
+.card-featured {
+    border-color: rgba(245, 181, 46, 0.7);
+    box-shadow:
+        0 0 0 1px rgba(245, 181, 46, 0.3),
+        0 0 30px rgba(245, 181, 46, 0.12),
+        inset 0 0 40px rgba(31, 13, 97, 0.4);
+    transform: translateY(-8px);
+}
+
+.card:hover {
+    transform: translateY(-14px);
+    border-color: rgba(245, 181, 46, 0.8);
+    box-shadow:
+        0 0 0 1px rgba(245, 181, 46, 0.35),
+        0 16px 40px rgba(0, 0, 0, 0.45),
+        0 0 40px rgba(245, 181, 46, 0.1);
+}
+
+/* Imagem do card */
+.card-img {
+    width: calc(100% + 56px);
+    height: 260px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    margin: -40px -28px 16px -28px;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.card:hover .card-img img {
+    transform: scale(1.07);
+}
+
+/* Nome da carta com animação no hover */
+.card-nome-carta {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--lilas);
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+    position: relative;
+    transition: color 0.3s ease, letter-spacing 0.4s ease;
+}
+
+/* Sublinhado brilhante por baixo do nome */
+.card-nome-carta::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: var(--dourado);
+    transition: width 0.4s ease;
+}
+
+.card:hover .card-nome-carta {
+    color: var(--dourado);
+    letter-spacing: 0.22em;
+}
+
+.card:hover .card-nome-carta::after {
+    width: 100%;
+}
+
+/* Título dos cards */
+.card-content h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.95rem;
+    color: var(--dourado);
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+}
+
+/* Texto dos cards */
+.card-content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--lilas-claro);
+    line-height: 1.75;
+}
+
+/* Rodapé do card */
+.card-footer {
+    margin-top: auto;
+    font-size: 0.75rem;
+    color: var(--lilas);
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+}
+
+/* ── 6. Footer ── */
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(10, 5, 30, 0.75);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(245, 181, 46, 0.2);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(245, 181, 46, 0.3), transparent);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+#frase {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--dourado);
+    letter-spacing: 0.03em;
+    margin-bottom: 10px;
+}
+
+/* Links do footer em linha */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: var(--lilas);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--dourado);
+}
+
+#creditos {
+    font-size: 0.8rem;
+    color: var(--lilas);
+    opacity: 0.55;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+}
+
+/* ── 7. Responsividade ── */
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 16px 24px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 65px;
+        flex-direction: column;
+        background: rgba(10, 5, 30, 0.97);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease;
+        padding: 30px 0;
+        gap: 24px;
+        border-bottom: 1px solid rgba(245, 181, 46, 0.2);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Animação X no hamburger */
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .hero {
+        padding: 50px 20px 30px;
+    }
+
+    .card-area {
+        padding: 30px 20px 60px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card,
+    .card-featured {
+        width: 100%;
+        max-width: 360px;
+        transform: none;
+    }
+
+    .card:hover,
+    .card-featured:hover {
+        transform: translateY(-6px);
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

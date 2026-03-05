@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Thamires Santos">
+    <title>The Innerself</title>
+    <link rel="icon" type="image/png" href="./assets/icon/lua-crescente.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+     integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <!-- Estrelas decorativas de fundo -->
+    <div class="stars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-symbol">☽</span>
+            <span class="logo-text">The Innerself</span>
+        </div>
+
+        <!-- Hamburger (mobile) -->
+        <div class="menu-toggle" id="mobile-menu" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero">
+        <p class="hero-subtitle">Bem-vinda à leitura da tua alma</p>
+        <h1 class="hero-title">As Mensagens do Universo</h1>
+        <div class="hero-divider">✦ ✦ ✦</div>
+    </header>
+
+    <!-- ========== CARDS ========== -->
+    <main class="container">
+        <section class="card-area">
+
+            <div class="card card-featured">
+                <div class="card-img">
+                    <img src="./assets/img/carta-dia.png" alt="Carta de tarot O Eremita — mensagem do dia">
+                </div>
+                <div class="card-content">
+                    <h3>Mensagem do Dia</h3>
+                    <span class="card-nome-carta">O Eremita</span>
+                    <p>A resposta que procuras não está fora.
+                        Silencia o mundo e escuta a tua própria sabedoria.
+                        A tua luz interior sabe mostrar o caminho.</p>
+                </div>
+                <div class="card-footer">✦ Leitura Diária ✦</div>
+            </div>
+
+            <div class="card card-featured">
+                <div class="card-img">
+                    <img src="./assets/img/carta-semana.png" alt="Carta de tarot O Louco — mensagem da semana">
+                </div>
+                <div class="card-content">
+                    <h3>Mensagem da Semana</h3>
+                    <span class="card-nome-carta">O Louco</span>
+                    <p>Um novo caminho chama por ti.
+                        Confia no primeiro passo, mesmo que ainda não vejas todo o percurso.
+                        A vida recompensa quem tem coragem de começar.</p>
+                </div>
+                <div class="card-footer">✦ Leitura Semanal ✦</div>
+            </div>
+
+            <div class="card card-featured">
+                <div class="card-img">
+                    <img src="./assets/img/carta-mes.png" alt="Carta de tarot A Sacerdotisa — mensagem do mês">
+                </div>
+                <div class="card-content">
+                    <h3>Mensagem do Mês</h3>
+                    <span class="card-nome-carta">A Sacerdotisa</span>
+                    <p>Nem tudo precisa ser revelado agora.
+                        Escuta a tua intuição e observa os sinais com calma.
+                        A verdade surge quando o silêncio é respeitado.</p>
+                </div>
+                <div class="card-footer">✦ Leitura Mensal ✦</div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p id="frase">"O tarot não prevê o futuro — revela o que já sabes dentro de ti."</p>
+        <hr>
+        <nav class="footer-links">
+            <a href="https://pt.wikipedia.org/wiki/Tarô" target="_blank">O que é o Tarot</a>
+            <a href="https://pt.wikipedia.org/wiki/Arcanos_maiores" target="_blank">Arcanos Maiores</a>
+            <a href="https://pt.wikipedia.org/wiki/Arcanos_menores" target="_blank">Arcanos Menores</a>
+        </nav>
+        <hr>
+        <p id="creditos">© 2026 The Innerself · Criado por Thamires Santos</p>
+    </footer>
+
+    <!-- Script hamburger -->
+    <script>
+        const menu = document.querySelector('#mobile-menu');
+        const menuLinks = document.querySelector('.nav-links');
+
+        menu.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            menuLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
